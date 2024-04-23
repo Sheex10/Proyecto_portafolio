@@ -1,5 +1,5 @@
 from django.urls import path
-from web_final import views
+from happy_footprints import views
 from .views import home
 
 
