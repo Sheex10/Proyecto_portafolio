@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'happy_footprints',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,9 @@ TEMPLATES = [
         },
     },
 ]
+LOGIN_REDIRECT_URL ="home"
+LOGOUT_REDIRECT_URL="InicioSesion"
+
 
 WSGI_APPLICATION = 'web_final.wsgi.application'
 
@@ -80,6 +85,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'USER': 'patito',
+        'PASSWORD': '123456789',
+        'TEST': {
+            'USER': 'default_test',
+            'TABLESPACE': 'default_test_tbls',
+            'TBLSPACE_TEMP': 'default_test_tbls_tmp',
+        }
     }
 }
 
@@ -124,3 +136,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
