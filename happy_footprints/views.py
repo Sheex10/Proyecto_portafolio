@@ -12,18 +12,18 @@ def home(request):
     return render(request, 'happy_footprints/home.html')
 
 def Perros(request):
-    listaProductos = Producto.objects.filter(categoria=1)
+    listaProductos = Producto.objects.filter(categoria=4)
     contexto = {
-        "nombreProd" : listaProductos
+        "nomProd" : listaProductos
 
     }
     return render(request, 'happy_footprints/Perros.html', contexto)
 
 
 def Gatos(request):
-    listaProductos = Producto.objects.filter(categoria=2)
+    listaProductos = Producto.objects.filter(categoria=3)
     contexto = {
-        "nombreProd" : listaProductos
+        "nomProd" : listaProductos
 
     }
     return render(request, 'happy_footprints/Gatos.html', contexto)
@@ -34,7 +34,7 @@ def buscar_interno_producto(request, id):
         "nombree": prod
     }
     return render(request, 'happy_footprints/CamaPerro.html', contexto)
-
+#---------------------------------------------
 def Producto(request):
 
     return render(request, 'happy_footprints/Producto.html')
