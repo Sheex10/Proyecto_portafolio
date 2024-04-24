@@ -44,5 +44,15 @@ class Producto(models.Model):
     categoria =models.ForeignKey(Categoria,on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre
-
+#---------------------------------------
+class Direccion(models.Model):
+    id_direccion =models.IntegerField(primary_key=True, verbose_name="id de direccion")
+    calle=models.CharField(max_length=100, verbose_name="nombre calle")
+    numero=models.IntegerField(verbose_name="numero casa")
+    descripcion=models.CharField(max_length=600, verbose_name="descripcion direccion")
+    usuario=models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.descripcion
+#----------------------------------------------
 
