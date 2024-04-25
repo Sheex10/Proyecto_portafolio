@@ -1,0 +1,31 @@
+{% extends 'happy_footprints/navbar.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Razas</title>
+{% endblock titulo %}
+
+{% block cuerpo %}
+<div id="razas">
+    <h2 style="text-shadow: 2px 2px 5px rgb(87, 196, 54);">Da click y descubre todas
+        las razas de perros que existen!!</h2>
+    <button class="btnRaza" id="boton" onclick="funName()">Mostrar razas</button>
+</div>
+
+<script>
+    url = "https://dog.ceo/api/breeds/list/all"
+    async function funName() {
+        url = "https://dog.ceo/api/breeds/list/all"
+        const response = await fetch("https://dog.ceo/api/breeds/list/all");
+        var data = await response.json();
+
+
+        var ty = data.message;
+        var razas = Object.keys(ty);
+        for (let i = 0; i < razas.length; i++) {
+            markup = "<p>" + razas[i] + "<p>"
+            document.querySelector("#razas").insertAdjacentHTML("beforeend", markup);
+        }
+    }
+</script>
+{% endblock cuerpo %}

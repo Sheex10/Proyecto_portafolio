@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Categoria, Rol, Usuario
-from django.contrib import messages
+from .models import Producto, Usuario, Categoria, Rol
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -35,7 +35,7 @@ def buscar_interno_producto(request, id):
     }
     return render(request, 'happy_footprints/CamaPerro.html', contexto)
 #---------------------------------------------
-def Producto(request):
+def Prod(request):
 
     return render(request, 'happy_footprints/Producto.html')
 #-------------------------------------------------------------
@@ -45,7 +45,7 @@ def VerPerfil(request):
         "usuarios": datUsuario
 
     }
-    return render(request, 'ApUno/VerPerfil.html', contexto)
+    return render(request, 'happy_footprints/VerPerfil.html', contexto)
 
 #---------------------------------------------------------------
 @login_required
@@ -68,6 +68,16 @@ def formProductos(request):
         return redirect('Gatos')
     
 #--------------------------------------------------------------------
+@login_required
+def EditProducto(request):
+    listaProductos = Producto.objects.all()
+    contexto = {
+        "nomProd": listaProductos
+
+    }
+    return render(request, 'happy_footprints/EditProducto.html', contexto)
+
+#---------------------------------------------------------------------
 
 def ModiProd(request):
     vFotoProd = request.FILES.get('fotoProd', '')
@@ -123,7 +133,7 @@ def ModiPerfil(request):
     contexto = {
         "usuarios": datUsu
     }
-    return render(request, 'ApUno/ModiPerfil.html', contexto)
+    return render(request, 'happy_footprints/ModiPerfil.html', contexto)
 
 @login_required(login_url='InicioSesion')
 
@@ -146,6 +156,12 @@ def FormPerfilXD(request):
     messages.success(request, "Perfil Modificado!.")
 
     return redirect('VerPerfil')
+
+#------------------------------------------------------------
+
+def InicioSesion(request):
+    logout(request)
+    return render(request, 'happy_footprints/InicioSesion.html')
 #------------------------------------------------
 def InSesion(request):
     try:
@@ -185,3 +201,8 @@ def InSesion(request):
     except User.DoesNotExist:
         messages.error(request, "El usuario no existe")
         return redirect('InicioSesion')
+    
+#-------------------------------------------------------------
+def Razas(request):
+    return render(request, 'happy_footprints/Razas.html')
+    
