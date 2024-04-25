@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 # Create your views here.
+
+# Vistas principales
+
 def home(request):
     return render(request, 'happy_footprints/home.html')
 
@@ -36,6 +39,10 @@ def buscar_interno_producto(request, id):
     return render(request, 'happy_footprints/CamaPerro.html', contexto)
 
 #---------------------------------------------
+
+# Vistas para los productos
+
+
 @login_required
 def EditProducto(request):
     listaProductos = Producto.objects.all()
@@ -45,22 +52,16 @@ def EditProducto(request):
     }
     return render(request, 'happy_footprints/EditProducto.html', contexto)
 
-#--------------------------------------------------------------------
+
 def CamaPerro(request):
 
     return render(request, 'happy_footprints/CamaPerro.html')
-#---------------------------------------------
+
+
+
 def Produc(request):
 
     return render(request, 'happy_footprints/Producto.html')
-#-------------------------------------------------------------
-def VerPerfil(request):
-    datUsuario = Usuario.objects.all()
-    contexto = {
-        "usuarios": datUsuario
-
-    }
-    return render(request, 'happy_footprints/VerPerfil.html', contexto)
 
 #---------------------------------------------------------------
 @login_required
@@ -82,7 +83,6 @@ def formProductos(request):
     if vRegCategoria.id_categoria == 3:
         return redirect('Gatos')
     
-#--------------------------------------------------------------------
 
 def ControlProd(request):
     lista = Producto.objects.all()
@@ -90,7 +90,7 @@ def ControlProd(request):
         "producto": lista
     }
     return render(request, 'happy_footprints/ControlProd.html', contexto)
-#---------------------------------------------------------------------
+
 
 def ModiProd(request):
     vFotoProd = request.FILES.get('fotoProd', '')
@@ -214,6 +214,14 @@ def InSesion(request):
     except User.DoesNotExist:
         messages.error(request, "El usuario no existe")
         return redirect('InicioSesion')
+#-------------------------------------------------------------
+def VerPerfil(request):
+    datUsuario = Usuario.objects.all()
+    contexto = {
+        "usuarios": datUsuario
+
+    }
+    return render(request, 'happy_footprints/VerPerfil.html', contexto)
     
 #-------------------------------------------------------------
 def Razas(request):
