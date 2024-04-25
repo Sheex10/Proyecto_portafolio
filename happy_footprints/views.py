@@ -34,8 +34,23 @@ def buscar_interno_producto(request, id):
         "nombree": prod
     }
     return render(request, 'happy_footprints/CamaPerro.html', contexto)
+
 #---------------------------------------------
-def Prod(request):
+@login_required
+def EditProducto(request):
+    listaProductos = Producto.objects.all()
+    contexto = {
+        "nomProd": listaProductos
+
+    }
+    return render(request, 'happy_footprints/EditProducto.html', contexto)
+
+#--------------------------------------------------------------------
+def CamaPerro(request):
+
+    return render(request, 'happy_footprints/CamaPerro.html')
+#---------------------------------------------
+def Produc(request):
 
     return render(request, 'happy_footprints/Producto.html')
 #-------------------------------------------------------------
@@ -68,15 +83,13 @@ def formProductos(request):
         return redirect('Gatos')
     
 #--------------------------------------------------------------------
-@login_required
-def EditProducto(request):
-    listaProductos = Producto.objects.all()
+
+def ControlProd(request):
+    lista = Producto.objects.all()
     contexto = {
-        "nomProd": listaProductos
-
+        "producto": lista
     }
-    return render(request, 'happy_footprints/EditProducto.html', contexto)
-
+    return render(request, 'happy_footprints/ControlProd.html', contexto)
 #---------------------------------------------------------------------
 
 def ModiProd(request):

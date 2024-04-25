@@ -1,0 +1,30 @@
+{% extends 'happy_footprints/plantilla_prod.html' %}
+{% load static %}
+
+{% block titulo_producto %}
+<title>Cama antiestrès</title>
+{% endblock titulo_producto %}
+
+{% block cuerpo_producto %}
+<div class="container">
+    <div class="row" style="text-align: center;">
+        <div class="col-md-6 col-sm-12">
+            <a href="#" target="_self"><br><br><img
+                src="{{ nombree.foto.url }}" alt="No disponible"> </a>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <br><h2 >{{ nombree.nombre }}</h2>
+            <h4>${{ nombree.precio }}</h4> 
+            <br><br><br><h4>Cantidad:</h4><input class="cant" type="number" min="1" max="200" placeholder="1">
+            <button class="button">Añadir al carrito</button>
+        </div>
+    </div> 
+    <div class="row" style="text-align: center;">
+        <div class="col-md-12 col-sm-12">
+            <hr class="solid">
+            <h2>Descripción</h2>
+            <h5>{{ nombree.descripcion }}</h5>
+        </div>
+    </div>
+</div> 
+{% endblock cuerpo_producto %}
