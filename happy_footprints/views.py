@@ -226,4 +226,7 @@ def VerPerfil(request):
 #-------------------------------------------------------------
 def Razas(request):
     return render(request, 'happy_footprints/Razas.html')
+
+def Carrito(request):
+    return render(request, 'happy_footprints/Carrito.html')
     

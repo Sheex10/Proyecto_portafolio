@@ -1,6 +1,6 @@
 from django.urls import path
 from happy_footprints import views
-from .views import home, Gatos, Perros, buscar_interno_producto, Produc, VerPerfil,formProductos, EditProducto, ModiProd, formRegistro, ModiPerfil, FormPerfilXD, InSesion, InicioSesion, Razas, CamaPerro, ControlProd
+from .views import home, Gatos, Perros, buscar_interno_producto, Produc, VerPerfil,formProductos, EditProducto, ModiProd, formRegistro, ModiPerfil, FormPerfilXD, InSesion, InicioSesion, Razas, CamaPerro, ControlProd, Carrito
 
 
 urlpatterns = [
@@ -22,6 +22,7 @@ urlpatterns = [
     path('CamaPerro', CamaPerro,name="CamaPerro"),
     path('ControlProd',ControlProd,name="ControlProd"),
     path('home', views.home, name='home'),
+    path('Carrito', Carrito, name="Carrito"),
 
 
 ]
