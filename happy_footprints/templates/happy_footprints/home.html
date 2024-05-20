@@ -57,40 +57,5 @@
     dots[slideIndex - 1].className += " w3-red";
   }
 </script>
-<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
 
-  <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
-
-    <div class="row">
-      <div class="col-lg-3 mb-3">
-        <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/"
-          aria-label="Bootstrap">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block me-2" viewBox="0 0 118 94"
-            role="img">
-            <path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor"></path>
-          </svg>
-          <span class="fs-5">HappyFootPrints</span>
-        </a>
-        <ul class="list-unstyled small">
-          <li class="mb-2">ACERCA DE NOSOTROS</li>
-          <li class="mb-2">Somos una tienda de accesorios de mascotas especificamente para tu perrito o gatito fiel,
-            donde podrás encontrar desde camitas hasta casitas para tu peludo, a un buen precio y de una excelente
-            calidad. </li>
-          <li class="mb-2"></li>
-        </ul><a class="navbar-brand"><img src="{% static 'img/logo_happy.png' %}" alt="Logo" style="width:250px;"
-            class="rounded-pill"></a>
-      </div>
-      <div class="col-6 col-lg-2 offset-lg-1 mb-3">
-        <h5>Enlaces rapidos</h5>
-        <ul class="list-unstyled">
-          <li class="dropdown-item"><a href="/">Inicio</a></li><br>
-          <li class="dropdown-item"><a href="{% url 'Perros' %}">Accesorios de perro</a></li><br>
-          <li class="dropdown-item"><a href="{% url 'Gatos' %}">Accesorios de gato</a></li><br>
-          <li class="dropdown-item"><a href="{% url 'Preguntas' %}">Preguntas frecuentes</a></li><br>
-          <li class="dropdown-item"><a href="{% url 'Razas' %}">Conoce aquí todas las razas de perros!</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
 {% endblock cuerpo %}
