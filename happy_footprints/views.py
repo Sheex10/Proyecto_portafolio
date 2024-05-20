@@ -232,4 +232,41 @@ def Carrito(request):
 
 def Preguntas(request):
     return render(request, 'happy_footprints/Preguntas.html')
-    
+
+#-------------------------------------------------------------
+
+#Perros
+
+def CamasP(request):
+    return render(request, 'Perros/CamasP.html')
+
+def JuguetesP(request):
+    return render(request, 'Perros/JuguetesP.html')
+
+def CorreasP(request):
+    return render(request, 'Perros/CorreasP.html')
+
+def ComederosP(request):
+    return render(request, 'Perros/ComederosP.html')
+
+def CasasP(request):
+    return render(request, 'Perros/CasasP.html')
+
+#-------------------------------------------------------------
+
+#Gatos
+
+def CamasG(request):
+    return render(request, 'Gatos/CamasG.html')
+
+def JuguetesG(request):
+    return render(request, 'Gatos/JuguetesG.html')
+
+def CorreasG(request):
+    return render(request, 'Gatos/CorreasG.html')
+
+def ComederosG(request):
+    return render(request, 'Gatos/ComederosG.html')
+
+def CasasG(request):
+    return render(request, 'Gatos/CasasG.html')  
