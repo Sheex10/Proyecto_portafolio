@@ -229,4 +229,7 @@ def Razas(request):
 
 def Carrito(request):
     return render(request, 'happy_footprints/Carrito.html')
+
+def Preguntas(request):
+    return render(request, 'happy_footprints/Preguntas.html')
     
