@@ -83,7 +83,7 @@ def formProductos(request):
     if vRegCategoria.id_categoria == 3:
         return redirect('Gatos')
     
-
+@login_required
 def ControlProd(request):
     lista = Producto.objects.all()
     contexto = {
@@ -91,7 +91,7 @@ def ControlProd(request):
     }
     return render(request, 'happy_footprints/ControlProd.html', contexto)
 
-
+@login_required
 def ModiProd(request):
     vFotoProd = request.FILES.get('fotoProd', '')
     vIDProd = request.POST['idProd']
@@ -131,6 +131,7 @@ def ModiPerfil(request):
 
 
 #-------------------------------------------------------------
+@login_required
 def VerPerfil(request):
     #datUsuario = Usuario.objects.all()
     contexto = {
