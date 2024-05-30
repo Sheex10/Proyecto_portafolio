@@ -293,8 +293,8 @@ def register(request):
             user_creation_form.save()
 
             user = authenticate(username=user_creation_form.cleaned_data['username'], password=user_creation_form.cleaned_data['password1'])
-            login(request, user)
+            login(request)
             return redirect('home')
         else:
             data['form'] = user_creation_form
-    return render(request, 'registration/register.html', data)
+    return render(request, 'happy_footprints/register.html', data)
