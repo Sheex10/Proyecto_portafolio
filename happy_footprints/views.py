@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import Producto, Categoria, Rol
-from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
-from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from .forms import CustomUserCreationForm
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -131,23 +129,23 @@ def formRegistro(request):
     vRol = 2
     vRegistroRol = Rol.objects.get(nombreRol="usuario")
     print(f"aaaaaaaaaaa: {vRegistroRol}")
-    valida = Usuario.objects.all()
-    for xmail in valida:
-        if xmail.correo == vCorreo:
-            messages.error(request, "Este correo ya existe!")
-            return redirect('Register')
+    #valida = Usuario.objects.all()
+    #for xmail in valida:
+    #    if xmail.correo == vCorreo:
+    #        messages.error(request, "Este correo ya existe!")
+    #        return redirect('Register')
 
-    Usuario.objects.create(id_usuario= vIdUser,nombre=vNombre, apellido=vApellido, clave=vClave, correo=vCorreo,telefono=vTelefono, rol=vRegistroRol)
-    user = User.objects.create_user(vCorreo, vCorreo, vClave)
+    #Usuario.objects.create(id_usuario= vIdUser,nombre=vNombre, apellido=vApellido, clave=vClave, correo=vCorreo,telefono=vTelefono, rol=vRegistroRol)
+    #user = User.objects.create_user(vCorreo, vCorreo, vClave)
 
     return redirect('InicioSesion')
 
 #---------------------------------------------------------
 @login_required
 def ModiPerfil(request):
-    datUsu = Usuario.objects.all()
+    #datUsu = Usuario.objects.all()
     contexto = {
-        "usuarios": datUsu
+       # "usuarios": datUsu
     }
     return render(request, 'happy_footprints/ModiPerfil.html', contexto)
 
@@ -162,7 +160,7 @@ def FormPerfilXD(request):
     vFonoUser = request.POST['fonoUser']
 
     correoU = request.user.username
-    FormPerfilXD = Usuario.objects.get(correo=correoU)
+    #FormPerfilXD = Usuario.objects.get(correo=correoU)
 
     FormPerfilXD.nombre = vNombreUser
     FormPerfilXD.apellido = vApellidoUser
@@ -173,11 +171,7 @@ def FormPerfilXD(request):
 
     return redirect('VerPerfil')
 
-#------------------------------------------------------------
 
-def InicioSesion(request):
-    logout(request)
-    return render(request, 'happy_footprints/InicioSesion.html')
 #------------------------------------------------
 """def InSesion(request):
     try:
@@ -219,9 +213,9 @@ def InicioSesion(request):
         return redirect('InicioSesion')"""
 #-------------------------------------------------------------
 def VerPerfil(request):
-    datUsuario = Usuario.objects.all()
+    #datUsuario = Usuario.objects.all()
     contexto = {
-        "usuarios": datUsuario
+        #"usuarios": datUsuario
 
     }
     return render(request, 'happy_footprints/VerPerfil.html', contexto)
@@ -280,6 +274,12 @@ def exit(request):
     logout(request)
     return redirect('home')
 
+
+#------------------------------------------------------------
+
+def InicioSesion(request):
+    logout(request)
+    return render(request, 'happy_footprints/InicioSesion.html')
 #---------------------------
 
 def register(request):
