@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -271,3 +272,9 @@ def ComederosG(request):
 
 def CasasG(request):
     return render(request, 'Gatos/CasasG.html')  
+
+#------------------------------------------
+
+def exit(request):
+    logout(request)
+    return redirect('home')
