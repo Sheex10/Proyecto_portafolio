@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'happy_footprints',
     'rest_framework',
     'rest_framework.authtoken',
+    'core',
 ]
 
 MIDDLEWARE = [
