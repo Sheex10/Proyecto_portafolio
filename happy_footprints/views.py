@@ -178,7 +178,7 @@ def InicioSesion(request):
     logout(request)
     return render(request, 'happy_footprints/InicioSesion.html')
 #------------------------------------------------
-def InSesion(request):
+"""def InSesion(request):
     try:
         vCorreo = request.POST['correoUser']
         vClave = request.POST['password']
@@ -215,7 +215,7 @@ def InSesion(request):
                 return redirect('InicioSesion')
     except User.DoesNotExist:
         messages.error(request, "El usuario no existe")
-        return redirect('InicioSesion')
+        return redirect('InicioSesion')"""
 #-------------------------------------------------------------
 def VerPerfil(request):
     datUsuario = Usuario.objects.all()
@@ -278,3 +278,8 @@ def CasasG(request):
 def exit(request):
     logout(request)
     return redirect('home')
+
+#---------------------------
+
+def register(request):
+    return render(request, 'happy_footprints/register.html')

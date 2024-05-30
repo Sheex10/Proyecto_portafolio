@@ -1,6 +1,6 @@
 from django.urls import path
 from happy_footprints import views
-from .views import home, Gatos, Perros, buscar_interno_producto, Produc, VerPerfil,formProductos, EditProducto, ModiProd, formRegistro, ModiPerfil, FormPerfilXD, InSesion, InicioSesion, Razas, CamaPerro, ControlProd, Carrito, Preguntas, CamasP, CasasP, ComederosP, CorreasP, JuguetesP, CamasG, CasasG, ComederosG, CorreasG, CorreasG, JuguetesG, exit
+from .views import home, Gatos, Perros, buscar_interno_producto, Produc, VerPerfil,formProductos, EditProducto, ModiProd, formRegistro, ModiPerfil, FormPerfilXD, InicioSesion, Razas, CamaPerro, ControlProd, Carrito, Preguntas, CamasP, CasasP, ComederosP, CorreasP, JuguetesP, CamasG, CasasG, ComederosG, CorreasG, CorreasG, JuguetesG, exit, register
 
 
 urlpatterns = [
@@ -16,7 +16,7 @@ urlpatterns = [
     path('formRegistro', formRegistro, name="formRegistro"),
     path('ModiPerfil', ModiPerfil, name="ModiPerfil"),
     path('FormPerfilXD', FormPerfilXD, name="FormPerfilXD"),
-    path('InSesion', InSesion, name="InSesion"),
+    #path('InSesion', InSesion, name="InSesion"),
     path('InicioSesion', InicioSesion,name="InicioSesion"),
     path('Razas', Razas,name="Razas"),
     path('CamaPerro', CamaPerro,name="CamaPerro"),
@@ -35,6 +35,8 @@ urlpatterns = [
     path('CorreasG', CorreasG, name="CorreasG"),
     path('JuguetesG', JuguetesG, name="JuguetesG"),
     path('logout/', exit, name='exit'),
+    path('register/', register, name='register'),
+
 
 
 
