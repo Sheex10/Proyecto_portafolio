@@ -14,6 +14,7 @@ from django.contrib.auth import authenticate, login
 def home(request):
     return render(request, 'happy_footprints/home.html')
 
+@login_required
 def Perros(request):
     listaProductos = Producto.objects.filter(categoria=4)
     contexto = {
@@ -276,9 +277,9 @@ def exit(request):
 
 #------------------------------------------------------------
 
-def InicioSesion(request):
+def login(request):
     logout(request)
-    return render(request, 'happy_footprints/InicioSesion.html')
+    return render(request, 'registration/login.html')
 #---------------------------
 
 def register(request):
@@ -296,4 +297,4 @@ def register(request):
             return redirect('home')
         else:
             data['form'] = user_creation_form
-    return render(request, 'happy_footprints/register.html', data)
+    return render(request, 'registration/register.html', data)
