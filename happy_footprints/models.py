@@ -13,7 +13,6 @@ class Rol(models.Model):
 
 #-----------------------------------------------------------------------
 
-#----------------------------------
 class Categoria(models.Model):
     id_categoria=models.IntegerField(primary_key=True, verbose_name="id de rol")
     nombre=models.CharField(max_length=30, verbose_name="nombre de categoria")
