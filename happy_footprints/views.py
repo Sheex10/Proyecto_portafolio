@@ -14,7 +14,6 @@ from django.contrib.auth import authenticate, login
 def home(request):
     return render(request, 'happy_footprints/home.html')
 
-@login_required
 def Perros(request):
     listaProductos = Producto.objects.filter(categoria=4)
     contexto = {
