@@ -95,8 +95,10 @@
 
 <div class="row">
   <div style="text-align: center;">
-    <img type="button"  src="{% static 'img/PERROO.png' %}" href="{% url 'Perros' %}" style="width:20%" alt="...">
-    <img type="button" src="{% static 'img/GATOO.png' %}" style="width:20%" alt="...">
+    <a href="{% url 'Perros' %}">
+    <img type="button"  src="{% static 'img/PERROO.png' %}"  style="width:20%" alt="..."></a>
+    <a href="{% url 'Gatos' %}">
+    <img type="button" src="{% static 'img/GATOO.png' %}" style="width:20%" alt="..."></a>
   </div>
 </div>
 <br><br>
