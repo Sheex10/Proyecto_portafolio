@@ -5,18 +5,20 @@
 <title>HappyFootPrints</title>
 {% endblock titulo %}
 
+
+
+
 {% block cuerpo %}
 
 
+<div class="w3-container" style="text-align: center;">
+  <h1 class="fw-bold">! {{ user.username | upper }} BIENVENIDO!</h1>
 
-  <div class="w3-container" style="text-align: center;">
-    <h1 class="fw-bold">! {{ user.username | upper }} BIENVENIDO!</h1>
-  
-    <h2 class="fw-bold">Aquí en HappyFootPrints tenemos los mejores productos para tu mascota.</h2>
-  </div>
-  <br><br>
+  <h2 class="fw-bold">Aquí en HappyFootPrints tenemos los mejores productos para tu mascota.</h2>
+</div>
+<br><br>
 
-  <!--<div class="w3-content" style="max-block-size:800px">
+<!--<div class="w3-content" style="max-block-size:800px">
   <img class="mySlides" src="{% static 'img/Slide_bar.jpg' %}" style="width:70%">
   <img class="mySlides" src="{% static 'img/Slide_dos.jpg' %}" style="width:70%">
   <img class="mySlides" src="{% static 'img/Slide_tres.jpg' %}" style="width:70%">
@@ -60,53 +62,53 @@
     dots[slideIndex - 1].className += " w3-red";
   }
 </script>-->
-  <div class="row">
-    <div class="row justify-content-around">
+<div class="row">
+  <div class="row justify-content-around">
 
-      <div class="col-lg-6 mb-6">
+    <div class="col-lg-6 mb-6">
 
-        <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="{% static 'img/Slide_bar.jpg' %}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="{% static 'img/Slide_dos.jpg' %}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="{% static 'img/Slide_tres.jpg' %}" class="d-block w-100" alt="...">
-            </div>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'img/Slide_bar.jpg' %}" class="d-block w-100" alt="...">
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+          <div class="carousel-item">
+            <img src="{% static 'img/Slide_dos.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/Slide_tres.jpg' %}" class="d-block w-100" alt="...">
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   </div>
-  <br><br>
-  <br><br>
+</div>
+<br><br>
+<br><br>
+<div style="text-align: center;">
+  <h2 class="fw-bold">SEGÚN TU MASCOTA ELIGE QUE ACCESORIO QUIERES!</h2>
+</div>
+<br><br>
+
+
+
+<div class="row">
   <div style="text-align: center;">
-    <h2 class="fw-bold">SEGÚN TU MASCOTA ELIGE QUE ACCESORIO QUIERES!</h2>
+    <a href="{% url 'Perros' %}">
+      <img type="button" src="{% static 'img/PERROO.png' %}" style="width:30%" alt="..."></a><br><br><br><br><br><br>
+    <a href="{% url 'Gatos' %}">
+      <img type="button" src="{% static 'img/GATOO.png' %}" style="width:30%" alt="..."></a>
   </div>
-  <br><br>
-
-
-
-  <div class="row">
-    <div style="text-align: center;">
-      <a href="{% url 'Perros' %}">
-        <img type="button" src="{% static 'img/PERROO.png' %}" style="width:20%" alt="..."></a>
-      <a href="{% url 'Gatos' %}">
-        <img type="button" src="{% static 'img/GATOO.png' %}" style="width:20%" alt="..."></a>
-    </div>
-  </div>
-  <br><br>
-  <br><br><br><br>
-  <br><br>
+</div>
+<br><br>
+<br><br><br><br>
+<br><br>
 {% endblock cuerpo %}

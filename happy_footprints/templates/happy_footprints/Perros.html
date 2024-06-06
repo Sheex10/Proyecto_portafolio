@@ -9,7 +9,7 @@
 {% block cuerpo %}
 <br><br><br>
 <div style="text-align: center;">
-    <h2>Accesorios para tu perrito!</h2>
+    <h2 class="fw-bold">Accesorios para tu perrito!</h2>
 </div>
 <br><br>
 <div class="container">
@@ -18,10 +18,12 @@
         <div  class="col-md-4 col-sm-12">
             <a href="{% url 'buscar_interno_producto' p.id_producto %}" target="_self"><br><br>
                 <img id="fotoproductos" src="{{ p.foto.url }}" alt="No disponible" /> </a>
-            <h4 class="desc2">{{ p.nombre }}</h4>
-            <h5 class="desc2">${{ p.precio }}</h5>
+            <h4 class="fw-bold" class="desc2">{{ p.nombre }}</h4>
+            <h5 class="fw-bold" class="desc2">${{ p.precio }}</h5>
         </div>
         {% endfor %}
     </div>
 </div>
+<br><br><br><br><br>
 {% endblock cuerpo %}
+
