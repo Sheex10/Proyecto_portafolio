@@ -4,7 +4,7 @@
 
 {% load crispy_forms_tags %}
 
-<h3 style="text-align: center;">Registro de usuario</h3>
+<h1 style="text-align: center;"><strong>REGISTRO DE USUARIO</h1></strong>
 
 <br>
 
@@ -13,10 +13,10 @@
 
     <div class="card mx-auto" style="width: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Complete todos los campos</h5>
+            <h3 class="card-title"><strong>Complete todos los campos</h3></strong>
             {{ form | crispy }}
-            <a href="{% url 'home' %}" class="card-link">Inicio</a>
-            <button class="btn btn-sm btn-primary float-end" type="submit">Registrarse</button>
+            <a href="{% url 'home' %}" class="card-link"><strong>VOLVER AL INICIO</a></strong>
+            <button class="btn btn-sm btn-primary float-end" type="submit"><strong>Registrarse</button></strong>
         </div>
     </div>
 
