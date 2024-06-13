@@ -50,9 +50,6 @@ def Preguntas(request):
 #---------------------------------------------
 
 
-
-
-
 #CRUD
 
 
@@ -95,7 +92,10 @@ def formProductos(request):
         return redirect('Perros')
     if vRegCategoria.id_categoria == 3:
         return redirect('Gatos')
-    
+
+
+
+#????????
 @login_required
 def ControlProd(request):
     lista = Producto.objects.all()
@@ -103,6 +103,8 @@ def ControlProd(request):
         "producto": lista
     }
     return render(request, 'happy_footprints/ControlProd.html', contexto)
+#????????
+
 
 @login_required
 def ModiProd(request):
