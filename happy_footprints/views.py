@@ -9,7 +9,7 @@ from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
-# Vistas principales
+# VISTAS PRINCIPALES
 
 def home(request):
     return render(request, 'happy_footprints/home.html')
@@ -38,9 +38,22 @@ def buscar_interno_producto(request, id):
     }
     return render(request, 'happy_footprints/CamaPerro.html', contexto)
 
+def Razas(request):
+    return render(request, 'happy_footprints/Razas.html')
+
+def Carrito(request):
+    return render(request, 'happy_footprints/Carrito.html')
+
+def Preguntas(request):
+    return render(request, 'happy_footprints/Preguntas.html')
+
 #---------------------------------------------
 
-# Vistas para los productos
+
+
+
+
+#CRUD
 
 
 @login_required
@@ -63,7 +76,7 @@ def Produc(request):
 
     return render(request, 'happy_footprints/Producto.html')
 
-#---------------------------------------------------------------
+
 @login_required
 def formProductos(request):
     vIdProd = request.POST['id']
@@ -118,7 +131,17 @@ def ModiProd(request):
     return redirect('EditProducto')
 
 
-#---------------------------------------------------------
+
+
+
+#---------------------------------------------------------------
+
+
+
+
+
+
+# VISTAS USUARIOS 
 @login_required
 def ModiPerfil(request):
     #datUsu = Usuario.objects.all()
@@ -139,56 +162,7 @@ def VerPerfil(request):
 
     }
     return render(request, 'happy_footprints/VerPerfil.html', contexto)
-    
-#-------------------------------------------------------------
-def Razas(request):
-    return render(request, 'happy_footprints/Razas.html')
 
-def Carrito(request):
-    return render(request, 'happy_footprints/Carrito.html')
-
-def Preguntas(request):
-    return render(request, 'happy_footprints/Preguntas.html')
-
-#-------------------------------------------------------------
-
-#Perros
-
-def CamasP(request):
-    return render(request, 'Perros/CamasP.html')
-
-def JuguetesP(request):
-    return render(request, 'Perros/JuguetesP.html')
-
-def CorreasP(request):
-    return render(request, 'Perros/CorreasP.html')
-
-def ComederosP(request):
-    return render(request, 'Perros/ComederosP.html')
-
-def CasasP(request):
-    return render(request, 'Perros/CasasP.html')
-
-#-------------------------------------------------------------
-
-#Gatos
-
-def CamasG(request):
-    return render(request, 'Gatos/CamasG.html')
-
-def JuguetesG(request):
-    return render(request, 'Gatos/JuguetesG.html')
-
-def CorreasG(request):
-    return render(request, 'Gatos/CorreasG.html')
-
-def ComederosG(request):
-    return render(request, 'Gatos/ComederosG.html')
-
-def CasasG(request):
-    return render(request, 'Gatos/CasasG.html')  
-
-#------------------------------------------
 
 def exit(request):
     logout(request)
@@ -218,3 +192,42 @@ def register(request):
         else:
             data['form'] = user_creation_form
     return render(request, 'happy_footprints/register.html', data)
+    
+#-------------------------------------------------------------
+
+#PERROS
+
+def CamasP(request):
+    return render(request, 'Perros/CamasP.html')
+
+def JuguetesP(request):
+    return render(request, 'Perros/JuguetesP.html')
+
+def CorreasP(request):
+    return render(request, 'Perros/CorreasP.html')
+
+def ComederosP(request):
+    return render(request, 'Perros/ComederosP.html')
+
+def CasasP(request):
+    return render(request, 'Perros/CasasP.html')
+
+#-------------------------------------------------------------
+
+#GATOS
+
+def CamasG(request):
+    return render(request, 'Gatos/CamasG.html')
+
+def JuguetesG(request):
+    return render(request, 'Gatos/JuguetesG.html')
+
+def CorreasG(request):
+    return render(request, 'Gatos/CorreasG.html')
+
+def ComederosG(request):
+    return render(request, 'Gatos/ComederosG.html')
+
+def CasasG(request):
+    return render(request, 'Gatos/CasasG.html')  
+
