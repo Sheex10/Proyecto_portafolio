@@ -53,6 +53,55 @@ def Preguntas(request):
 #CRUD
 
 
+def registrarProducto(request):
+    id_producto = request.POST['txtID']
+    nombre = request.POST['txtNombre']
+    descripcion = request.POST['txtDescripcion']
+    precio = request.POST['numPrecio']
+    stock = request.POST['numStock']
+    foto = request.POST['ifoto']
+
+    producto = Producto.objects.create(
+        id_producto=id_producto, nombre=nombre, descripcion=descripcion, precio=precio, stock=stock, foto=foto)
+    messages.success(request, '¡Producto registrado!')
+    return redirect('/')
+
+
+
+def editarProducto(request):
+    id_producto = request.POST['txtCodigo']
+    nombre = request.POST['txtNombre']
+    descripcion = request.POST['txtDescripcion']
+    precio = request.POST['numPrecio']
+    stock = request.POST['numStock']
+    foto = request.POST['ifoto']
+
+    producto = Producto.objects.get(id_producto=id_producto)
+    producto.id_producto = id_producto
+    producto.nombre = nombre
+    producto.descripcion = descripcion
+    producto.precio = precio
+    producto.stock = stock
+    producto.foto = foto
+    producto.save()
+
+    messages.success(request, '¡Producto actualizado!')
+
+    return redirect('/')
+
+
+def eliminarProducto(request, id_producto):
+    producto = Producto.objects.get(id_producto=id_producto)
+    producto.delete()
+
+    messages.success(request, '¡Producto eliminado!')
+
+    return redirect('/')
+
+
+
+#-------------------------------------------------------------------
+
 @login_required
 def EditProducto(request):
     listaProductos = Producto.objects.all()
