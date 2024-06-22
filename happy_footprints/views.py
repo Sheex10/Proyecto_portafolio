@@ -51,7 +51,8 @@ def Preguntas(request):
 
 
 #CRUD
-
+def Gestion(request):
+    return render(request, 'happy_footprints/Gestion.html')
 
 def registrarProducto(request):
     id_producto = request.POST['txtID']
