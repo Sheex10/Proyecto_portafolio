@@ -1,6 +1,6 @@
 from django.urls import path
 from happy_footprints import views
-from .views import home, Gatos, Perros, buscar_interno_producto, Produc, VerPerfil,formProductos, EditProducto, ModiProd, ModiPerfil, login, Razas, CamaPerro, ControlProd, Carrito, Preguntas, CamasP, CasasP, ComederosP, CorreasP, JuguetesP, CamasG, CasasG, ComederosG, CorreasG, CorreasG, JuguetesG, exit, register, Gestion
+from .views import home, Gatos, Perros, buscar_interno_producto, Produc, VerPerfil,formProductos, ModiPerfil, login, Razas, CamaPerro, ControlProd, Carrito, Preguntas, CamasP, CasasP, ComederosP, CorreasP, JuguetesP, CamasG, CasasG, ComederosG, CorreasG, CorreasG, JuguetesG, exit, register, Gestion
 
 
 urlpatterns = [
@@ -11,8 +11,6 @@ urlpatterns = [
     path('Produc', Produc, name="Produc"),
     path('VerPerfil', VerPerfil, name="VerPerfil"),
     path('formProductos', formProductos, name="formProductos"),
-    path('EditProducto', EditProducto, name="EditProducto"),
-    path('ModiProd', ModiProd, name="ModiProd"),
     path('ModiPerfil', ModiPerfil, name="ModiPerfil"),
     path('login/', login,name="login"),
     path('Razas', Razas,name="Razas"),
@@ -34,10 +32,8 @@ urlpatterns = [
     path('logout/', exit, name='exit'),
     path('register/', register, name='register'),
     path('Gestion', Gestion, name="Gestion"),
-
-
-
-
-
+    path('eliminarProducto/<id_producto>', views.eliminarProducto),
+    path('editarProducto/', views.editarProducto),
+    path('edicionProducto/<id_producto>', views.edicionProducto)
 
 ]

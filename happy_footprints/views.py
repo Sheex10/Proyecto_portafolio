@@ -52,7 +52,9 @@ def Preguntas(request):
 
 #CRUD
 def Gestion(request):
-    return render(request, 'happy_footprints/Gestion.html')
+    listadoProductos = Producto.objects.all()
+    messages.success(request, '¡Productos listados!')
+    return render(request, 'happy_footprints/Gestion.html', {"productos":listadoProductos})
 
 def registrarProducto(request):
     id_producto = request.POST['txtID']
@@ -68,6 +70,10 @@ def registrarProducto(request):
     return redirect('/')
 
 
+def edicionProducto(request, id_producto):
+    producto = Producto.objects.get(id_producto=id_producto)
+    return render(request, "happy_footprints/edicionProducto.html", {"producto": producto})
+#??????????????
 
 def editarProducto(request):
     id_producto = request.POST['txtCodigo']

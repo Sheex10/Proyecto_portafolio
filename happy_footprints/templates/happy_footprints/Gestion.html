@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'happy_footprints/navbar.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Gestión</title>
+{% endblock titulo %}
+
+{% block cuerpo %}
+
+
 <body>
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
@@ -46,21 +50,21 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Código</th>
+                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Créditos</th>
                             <th colspan="2">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for c in cursos %}
+                        {% for c in productos %}
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{c.codigo}}</td>
                             <td>{{c.nombre}}</td>
                             <td>{{c.creditos}}</td>
-                            <td><a href="#" class="btn btn-info">Editar</a></td>
-                            <td><a href="#" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                            <td><a href="edicionProducto/{{c.id_producto}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarProducto/{{c.id_producto}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -69,4 +73,4 @@
         </div>
     </div>
 </body>
-</html>
+{% endblock cuerpo %}
