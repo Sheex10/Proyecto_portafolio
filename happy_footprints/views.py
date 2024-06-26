@@ -232,6 +232,7 @@ def exit(request):
 
 def login(request):
     logout(request)
+    
     return render(request, 'registration/login.html')
 #---------------------------------------------------------
 
