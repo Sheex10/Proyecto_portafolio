@@ -58,6 +58,10 @@ def Gestion(request):
     return render(request, 'happy_footprints/Gestion.html', {"productos":listadoProductos})
 @login_required
 def registrarProducto(request):
+    listaCategoria = Categoria.objects.all()
+    contexto = {
+        "Categorias": listaCategoria
+    }
     id_producto = request.POST['txtID']
     nombre = request.POST['txtNombre']
     descripcion = request.POST['txtDescripcion']
@@ -68,6 +72,7 @@ def registrarProducto(request):
     producto = Producto.objects.create(
         id_producto=id_producto, nombre=nombre, descripcion=descripcion, precio=precio, stock=stock, foto=foto)
     messages.success(request, '¡Producto registrado!')
+    
     return redirect('/')
 
 @login_required
