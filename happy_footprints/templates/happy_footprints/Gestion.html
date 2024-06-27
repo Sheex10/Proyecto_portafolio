@@ -12,24 +12,17 @@
 <body>
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong class="text-dark">{{ message }}</strong>
-            </div>
-            {% endfor %}
-            {% endif %}
+            
             <h2><STRONG>GESTIÓN DE PRODUCTOS</STRONG></h2>
             <div class="card">
                 <div class="card-body">
                     <form action="#" method="POST">{% csrf_token %}
                         <div class="form-group">
-                            <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Código"
+                            <input type="text" id="id_producto" name="id_producto" class="form-control" placeholder="ID del producto"
                                 minlength="6" maxlength="6" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre del producto"
                                 maxlength="50" required>
                         </div>
                         <div class="form-group">
