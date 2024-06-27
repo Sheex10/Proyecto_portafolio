@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "bootstrap-icons": "^1.11.3"
+    "@coreui/coreui": "^5.0.2",
+    "bootstrap-icons": "^1.11.3",
+    "ldbutton": "^2.0.4"
   }
 }

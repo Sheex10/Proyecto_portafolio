@@ -16,8 +16,20 @@
             <br><h1 class="fw-bold"><strong>{{ nombree.nombre }}</h1></strong>
             <h1 class="fw-bold"><strong>${{ nombree.precio }}</h1> </strong>
             <br><br><br><h1 class="fw-bold"><strong>Cantidad:</h1></strong><input class="cant" type="number" min="1" max="200" placeholder="1">
-            <button class="button"><strong>AÑADIR AL CARRITO</button></strong>
+            <button class="button"id="liveToastBtn"><strong>AÑADIR AL CARRITO</button></strong>
         </div>
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+              <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                  <strong class="me-auto"><strong></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                  AÑADIDO AL CARRITO DE COMPRAS.
+                </div>
+              </div>
+            </div>
+          </div>
     </div> 
     <div class="row" style="text-align: center;">
         <div class="col-md-12 col-sm-12">

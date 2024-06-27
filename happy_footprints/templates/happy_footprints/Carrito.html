@@ -13,6 +13,8 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link type="text/css" rel="stylesheet" href="./static/Css/boton.css" />
+
     <style>
         .mySlides {
             display: none
@@ -20,22 +22,22 @@
     </style>
     <link rel="website icon" type="png" href="{% static 'img/logo_happy.png' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'css/estilos.css' %}">
-{% block cuerpo %}
-<script>
+    {% block cuerpo %}
+    <script>
         window.onload = function () {
             // Variables
             let baseDeDatos = [
                 {
                     id: 1,
                     nombre: 'Cama antiestrés',
-                    precio: 30990,
-                    imagen: 'https://www.tusmascotas.cl/wp-content/uploads/2021/01/CAMA-BEIGE.jpg'
+                    precio: 28990,
+                    imagen: 'static/img/gris.jpg'
                 },
                 {
                     id: 2,
                     nombre: 'Casa plastica',
-                    precio: 88990,
-                    imagen: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.coolebra.com%2Fcomparator%2Fproducts%2F7705152129557%2FCasa%2520Para%2520Perro%2520Peque%25C3%25B1a%2520Taupe%2520Techo%2520Azul%252068x61x58%2520cms%2520Rimax%2520RIMAX&psig=AOvVaw1itmcMX8KKLO_IiawQPaoT&ust=1719563311297000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJi0tvit-4YDFQAAAAAdAAAAABAE'
+                    precio: 89990,
+                    imagen: 'static/img/casa.perro2-modified.png'
                 },
 
 
@@ -184,13 +186,14 @@
             <main id="items" class="col-md-8 col-sm-12 row"></main>
             <!-- Carrito -->
             <aside class="col-md-4 col-sm-12">
-                <h2>Carrito de compras</h2>
+                <h2><strong>CARRITO DE COMPRAS</strong></h2>
                 <!-- Elementos del carrito -->
                 <ul id="carrito" class="list-group"></ul>
                 <hr>
                 <!-- Precio total -->
-                <p class="text-right">Total: <span id="total"></span> Pesos</p>
+                <p class="text-right"><STRONG>TOTAL: <span id="total"></span> PESOS</STRONG></p>
                 <button id="boton-vaciar" class="btn btn-danger">Vaciar carrito</button>
+                <button class="btn btn-danger" data-style="expand-left">Pagar</button>
             </aside>
         </div>
     </div>
@@ -200,7 +203,7 @@
     <br><br><br>
     <br><br><br>
 
-{% endblock cuerpo %}
+    {% endblock cuerpo %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
@@ -210,5 +213,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
         integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
         crossorigin="anonymous"></script>
+    <script src="{% static 'Js/boton.js' %}"></script>
 
 </body>
