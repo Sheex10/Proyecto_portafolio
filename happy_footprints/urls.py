@@ -34,6 +34,8 @@ urlpatterns = [
     path('Gestion', Gestion, name="Gestion"),
     path('eliminarProducto/<id_producto>', views.eliminarProducto),
     path('editarProducto/', views.editarProducto),
-    path('edicionProducto/<id_producto>', views.edicionProducto)
+    path('edicionProducto/<id_producto>', views.edicionProducto),
+    path('registrarProducto', views.registrarProducto),
 
 ]
+

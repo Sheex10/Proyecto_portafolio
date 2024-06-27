@@ -16,9 +16,9 @@
             <h2><STRONG>GESTIÓN DE PRODUCTOS</STRONG></h2>
             <div class="card">
                 <div class="card-body">
-                    <form action="#" method="POST">{% csrf_token %}
+                    <form action="registrarProducto" method="POST">{% csrf_token %}
                         <div class="form-group">
-                            <input type="text" id="id_producto" name="id_producto" class="form-control" placeholder="ID del producto"
+                            <input type="text" id="txtID" name="txtID" class="form-control" placeholder="ID del producto"
                                 minlength="6" maxlength="6" required>
                         </div>
                         <div class="form-group">
@@ -26,8 +26,19 @@
                                 maxlength="50" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="numCreditos" name="numCreditos" class="form-control" min="1" max="9"
-                                value="1" required>
+                            <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" placeholder="Descripcion"
+                                maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="numPrecio" name="numPrecio" class="form-control" placeholder="Precio"
+                                maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="numStock" name="numStock" class="form-control" placeholder="Stock"
+                                maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input accept="image/png,image/jpeg" type="file" id="txtNombre" name="ifoto"  class="form-control">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
