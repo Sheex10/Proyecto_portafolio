@@ -97,24 +97,47 @@
     </div>
   </div>
 </div>
+
+
 <br><br>
 <br><br>
 <div style="text-align: center;">
-  <h2 class="display-5"><strong>SEGÚN TU MASCOTA ELIGE QUE ACCESORIO QUIERES!</h2></strong>
+  <h2 class="display-5"><strong>SEGÚN TU MASCOTA ELIGE QUE ACCESORIOS QUIERES!</h2></strong>
 </div>
 <br><br>
 
 
 
-<div class="row">
+<div class="row" class="col-lg-6 mb-6">
   <div style="text-align: center;">
     <a href="{% url 'Perros' %}">
-      <img type="button" src="{% static 'img/PERROO1.png' %}" style="width:30%" alt="..."></a><br><br><br><br><br><br>
+      <img type="button" src="{% static 'img/PERROO1.png' %}" style="width:25%" alt="..."></a><br><br><br>
     <a href="{% url 'Gatos' %}">
-      <img type="button" src="{% static 'img/GATOO1.png' %}" style="width:30%" alt="..."></a>
+      <img type="button" src="{% static 'img/GATOO1.png' %}" style="width:25%" alt="..."></a>
+  </div>
+</div><br><br>
+<br><br>
+<br><br><br><br><div class="card-body" style="text-align: center;">
+
+<h1><strong>¿SABÍAS QUE?...</strong></h1></div>
+<div class="card-body" style="text-align: center;">
+  <img type="button" src="{% static 'img/secreto-modified.png' %}" class="btn" style="width:20%" id="liveToastBtn">
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <img src="{% static 'img/Slide_siete.jpg' %}" class="rounded me-2" alt="logo" style="width:300px;"
+          class="rounded-pill">
+        <strong class="me-auto"><strong></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        SUS LENGUAS ESTÁN CUBIERTAS DE CIENTOS DE ESPINAS PUNTIAGUDAS CURVADAS EN LA MISMA DIRECCIÓN
+        LLAMADAS PAPILAS, QUE SON RESPONSABLES DE DARLE UN TACTO TAN ÁSPERO A LA SINHUESO. ESTAS FINAS
+        ESTRUCTURAS CONTIENEN UNA CAVIDAD VACÍA EN LA PUNTA QUE DESEMPEÑA UN PAPEL CLAVE EN EL ASEO DEL FELINO.
+      </div>
+    </div>
   </div>
 </div>
-<br><br>
-<br><br><br><br>
 <br><br>
 {% endblock cuerpo %}
