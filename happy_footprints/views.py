@@ -91,7 +91,7 @@ def editarProducto(request):
     descripcion = request.POST['txtDescripcion']
     precio = request.POST['numPrecio']
     stock = request.POST['numStock']
-    foto = request.POST['ifoto']
+
 
     producto = Producto.objects.get(id_producto=id_producto)
     producto.id_producto = id_producto
@@ -99,7 +99,7 @@ def editarProducto(request):
     producto.descripcion = descripcion
     producto.precio = precio
     producto.stock = stock
-    producto.foto = foto
+
     producto.save()
 
     messages.success(request, '¡Producto actualizado!')
