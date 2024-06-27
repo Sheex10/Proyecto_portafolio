@@ -53,27 +53,31 @@ def Preguntas(request):
 #CRUD
 @login_required
 def Gestion(request):
+    listadoCategorias = Categoria.objects.all()
     listadoProductos = Producto.objects.all()
     messages.success(request, '¡Productos listados!')
-    return render(request, 'happy_footprints/Gestion.html', {"productos":listadoProductos})
+    return render(request, 'happy_footprints/Gestion.html', {"productos":listadoProductos, "categorias":listadoCategorias})
+
+
 @login_required
 def registrarProducto(request):
-    listaCategoria = Categoria.objects.all()
-    contexto = {
-        "Categorias": listaCategoria
-    }
     id_producto = request.POST['txtID']
     nombre = request.POST['txtNombre']
     descripcion = request.POST['txtDescripcion']
     precio = request.POST['numPrecio']
     stock = request.POST['numStock']
-    foto = request.POST['ifoto']
+    fotoP = request.FILES['ifoto']
+    vCategoria = request.POST['Numcategorias']
+    vRegCategoria = Categoria.objects.get(id_categoria=vCategoria)
 
     producto = Producto.objects.create(
-        id_producto=id_producto, nombre=nombre, descripcion=descripcion, precio=precio, stock=stock, foto=foto)
+        id_producto=id_producto, nombre=nombre, descripcion=descripcion, precio=precio, stock=stock, foto=fotoP, categoria=vRegCategoria)
     messages.success(request, '¡Producto registrado!')
     
-    return redirect('/')
+    if vRegCategoria.id_categoria == 4:
+        return redirect('Perros')
+    if vRegCategoria.id_categoria == 3:
+        return redirect('Gatos')
 
 @login_required
 def edicionProducto(request, id_producto):

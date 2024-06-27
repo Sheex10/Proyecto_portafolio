@@ -16,7 +16,7 @@
             <h2><STRONG>GESTIÓN DE PRODUCTOS</STRONG></h2>
             <div class="card">
                 <div class="card-body">
-                    <form action="registrarProducto" method="POST">{% csrf_token %}
+                    <form action="registrarProducto" method="POST" enctype="multipart/form-data">{% csrf_token %}
                         <div class="form-group">
                             <input type="text" id="txtID" name="txtID" class="form-control" placeholder="ID del producto"
                                 minlength="6" maxlength="6" required>
@@ -38,13 +38,13 @@
                                 maxlength="50" required>
                         </div>
                         <div class="form-group">
-                            <input accept="image/png,image/jpeg" type="file" id="txtNombre" name="ifoto"  class="form-control">
+                            <input accept="image/png,image/jpeg" type="file" id="ifoto" name="ifoto"  class="form-control">
                         </div>
                         <div>
                             <label style="text-shadow: 2px 2px 5px rgb(160, 154, 154);">Categoria</label>
-                            <select class="form-control" name="categoria" id="categoria">
-                                {% for z in Categorias %}
-                                <option value="{{ z.id_categoria }}">{{ z.nombre }}</option>
+                            <select class="form-control" name="Numcategorias" id="Numcategorias">
+                                {% for z in categorias %}
+                                <option value="{{ z.id_categoria }}">{{ z.id_categoria }}</option>
                                 {% endfor %}
                             </select>
                          </div>
@@ -62,9 +62,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>ID</th>
                             <th>Nombre</th>
-                            <th>Créditos</th>
+                            <th></th>
                             <th colspan="2">Opciones</th>
                         </tr>
                     </thead>
@@ -74,7 +73,6 @@
                             <td>{{forloop.counter}}</td>
                             <td>{{c.codigo}}</td>
                             <td>{{c.nombre}}</td>
-                            <td>{{c.creditos}}</td>
                             <td><a href="edicionProducto/{{c.id_producto}}" class="btn btn-info">Editar</a></td>
                             <td><a href="eliminarProducto/{{c.id_producto}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
                         </tr>
