@@ -35,28 +35,11 @@
                     <li class="nav-item" >
                         <a class="nav-link" class="fw-bold"  href="{% url 'home' %}" ><strong>INICIO</a></strong>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><strong>PERROS</a></strong>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'CamasP' %}">Camas</a></li>
-                            <li><a class="dropdown-item" href="{% url 'JuguetesP' %}">Juguetes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'CorreasP' %}">Correas y Collares</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ComederosP' %}">Comederos</a></li>
-                            <li><a class="dropdown-item" href="{% url 'CasasP' %}">Casas</a></li>
-                            <li><a class="dropdown-item" href="{% url 'Perros' %}">Ver todo</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Perros' %}"><strong>PERROS</a></strong>
                     </li>
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><strong>GATOS</a></strong>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'CamasG' %}">Camas</a></li>
-                            <li><a class="dropdown-item" href="{% url 'JuguetesG' %}">Juguetes</a></li>
-                            <li><a class="dropdown-item" href="{% url 'CorreasG' %}">Correas y Collares</a></li>
-                            <li><a class="dropdown-item" href="{% url 'ComederosG' %}">Comederos</a></li>
-                            <li><a class="dropdown-item" href="{% url 'CasasG' %}">Casas</a></li>
-                            <li><a class="dropdown-item" href="{% url 'Gatos' %}">Ver todo</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Gatos' %}"><strong>GATOS</a></strong>
                     </li>
                     <li class="nav-item" >
                         <a  class="nav-link" href="{% url 'Carrito' %}"><strong>CARRITO</a></strong>
