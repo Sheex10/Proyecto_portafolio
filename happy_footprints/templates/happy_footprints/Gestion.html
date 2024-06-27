@@ -12,22 +12,22 @@
 <body>
     <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            
-            <h2><STRONG>GESTIÓN DE PRODUCTOS</STRONG></h2>
+
+            <h2><STRONG>AGREGAR PRODUCTO</STRONG></h2>
             <div class="card">
                 <div class="card-body">
                     <form action="registrarProducto" method="POST" enctype="multipart/form-data">{% csrf_token %}
                         <div class="form-group">
-                            <input type="text" id="txtID" name="txtID" class="form-control" placeholder="ID del producto"
-                                minlength="6" maxlength="6" required>
+                            <input type="text" id="txtID" name="txtID" class="form-control"
+                                placeholder="ID del producto" minlength="6" maxlength="6" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre del producto"
-                                maxlength="50" required>
+                            <input type="text" id="txtNombre" name="txtNombre" class="form-control"
+                                placeholder="Nombre del producto" maxlength="50" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" placeholder="Descripcion"
-                                maxlength="50" required>
+                            <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control"
+                                placeholder="Descripcion" maxlength="50" required>
                         </div>
                         <div class="form-group">
                             <input type="text" id="numPrecio" name="numPrecio" class="form-control" placeholder="Precio"
@@ -38,7 +38,8 @@
                                 maxlength="50" required>
                         </div>
                         <div class="form-group">
-                            <input accept="image/png,image/jpeg" type="file" id="ifoto" name="ifoto"  class="form-control">
+                            <input accept="image/png,image/jpeg" type="file" id="ifoto" name="ifoto"
+                                class="form-control">
                         </div>
                         <div>
                             <label style="text-shadow: 2px 2px 5px rgb(160, 154, 154);">Categoria</label>
@@ -47,11 +48,16 @@
                                 <option value="{{ z.id_categoria }}">{{ z.id_categoria }}</option>
                                 {% endfor %}
                             </select>
-                         </div>
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                         </div>
                     </form>
+                </div>
+            </div><br><br>
+            <div class="card">
+                <div class="card-body">
+                    <h5>CATEGORIAS: <br> 3 = Gatos <br> 4 = Perros</h5>
                 </div>
             </div>
         </div>
@@ -74,7 +80,8 @@
                             <td>{{c.codigo}}</td>
                             <td>{{c.nombre}}</td>
                             <td><a href="edicionProducto/{{c.id_producto}}" class="btn btn-info">Editar</a></td>
-                            <td><a href="eliminarProducto/{{c.id_producto}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                            <td><a href="eliminarProducto/{{c.id_producto}}"
+                                    class="btn btn-danger btnEliminacion">Eliminar</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
