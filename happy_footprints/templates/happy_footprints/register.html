@@ -16,9 +16,20 @@
             <h3 class="card-title"><strong>Complete todos los campos</h3></strong>
             {{ form | crispy }}
             <a href="{% url 'home' %}" class="card-link"><strong>VOLVER AL INICIO</a></strong>
-            <button class="btn btn-sm btn-primary float-end" type="submit"><strong>Registrarse</button></strong>
-        </div>
-    </div>
+            <button class="btn btn-sm btn-primary float-end" type="submit"
+            id="liveToastBtn"><strong>Registrarse</button></strong>        </div>
+    </div><div class="toast-container position-fixed bottom-0 end-0 p-3">
+<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast-header">
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body">
+    <h4>GRACIAS POR REGISTRARTE, POR MOTIVOS DE SEGURIDAD INICIA SESIÓN</h4>
+</div>
+</div>
+</div>
+
+
 
 </form>
 
