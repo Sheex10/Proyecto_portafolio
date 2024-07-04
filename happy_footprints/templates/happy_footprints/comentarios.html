@@ -6,18 +6,18 @@
     <title>Comments</title>
 </head>
 <body>
-    <h1>Comments</h1>
+    <h1>Comentarios</h1>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Add Comment</button>
+        <button type="submit">Subir comentario</button>
     </form>
 
     <h2>All Comments</h2>
-    {% for comment in comments %}
+    {% for comment in tablaComentario %}
         <div>
-            <p><strong>{{ comment.user.username }}</strong> at {{ comment.created_at }}</p>
+            <p><strong>{{ comment.user.username }}</strong> el {{ comment.created_at }}</p>
             <p>{{ comment.content }}</p>
         </div>
     {% endfor %}

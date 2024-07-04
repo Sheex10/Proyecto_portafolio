@@ -318,7 +318,7 @@ def add_comment(request):
 
 @login_required
 def comentarios(request):
-    '''if request.method == 'POST':
+    if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
@@ -326,12 +326,13 @@ def comentarios(request):
             comment.save()
             return redirect('comentarios')  # Cambia 'comments' por 'comentarios' si esa es la URL correcta
     else:
-        form = CommentForm()'''
+        form = CommentForm()
 
-    comments = Comment.objects.all()
-    print(comments)
+    tablaComentario = Comment.objects.all()
+    
 
     context = {
-        'comments': comments,
+        'tablaComentario': tablaComentario,
+        'form' : form
     }
     return render(request, 'happy_footprints/comentarios.html', context)
