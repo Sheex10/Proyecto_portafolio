@@ -1,12 +1,12 @@
 /* TAMAÑO DE IMAGENES */
-#fotoproductos{
+.fotoproductos{
     max-width: 20%;
     height: auto;
     margin: 20px;
     padding: 5px;
     display: inline-block;
     margin: auto;
-    }
+ }
   
   /* Background de la empresa */
   #ClrFnd {
@@ -160,5 +160,7 @@
     background-image: url("../img/fondo.png") ;
     background-color: rgba(84, 12, 199, 0.555);
   }
+
+  
   
  

@@ -27,7 +27,7 @@
             <br><br>
             <div class="col-sm-6 mb-3 mb-sm-5">
                 <div class="card" style="text-align: center;">
-                    <p class="fs-4"><strong>{{ comment.user.username }}</strong> el {{ comment.created_at }} </p>
+                    <p class="fs-4"><strong>{{ comment.user.username | upper }}</strong> el {{ comment.created_at }} </p>
                     <p class="fs-4">{{ comment.content }}</p>
                 </div>
             </div>{% endfor %}<br>
