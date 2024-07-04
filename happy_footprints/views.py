@@ -316,7 +316,7 @@ def add_comment(request):
     comments = Comment.objects.all().order_by('-created_at')
     return render(request, 'comments.html', {'form': form, 'comments': comments})
 
-@login_required
+
 def comentarios(request):
     if request.method == 'POST':
         form = CommentForm(request.POST)

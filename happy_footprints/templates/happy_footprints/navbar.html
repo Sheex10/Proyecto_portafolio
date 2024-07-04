@@ -49,11 +49,12 @@
                     </li>
                     {% endif %}
 
-                    {% if user.is_authenticated %}
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'comentarios' %}"><strong>COMENTARIOS</a></strong>
                     </li>
-                    {% endif %}
+                    
+                   
                     {% if user.is_staff %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'Gestion' %}"><strong>MODIFICAR PRODUCTOS</a></strong>

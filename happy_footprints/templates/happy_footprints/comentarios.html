@@ -10,24 +10,35 @@
 
 <body>
     {% block cuerpo %}
-    <div class="container">
+    <div class="container"><br><br>
         <div class="row" style="text-align: center;">
+
+            {% if user.is_authenticated %}
             <h1><strong>DANOS TU OPINIÓN</strong></h1>
 
 
             <form method="post"><br><br>
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn btn-success btn-lg" ><strong>AGREGAR COMENTARIO</strong></button><br><br><br><br>
-            </form>
+                <button type="submit" class="btn btn-success btn-lg"><strong>AGREGAR
+                        COMENTARIO</strong></button><br><br><br><br><br>
 
+            </form>
+            {% else %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h1><strong>Si quieres dejar un comentario debes iniciar sesión!</strong></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            <br><br><br><br><br><br><br><br>
             <h1><strong>COMENTARIOS</strong></h1><br><br>
 
             {% for comment in tablaComentario %}
             <br><br>
             <div class="col-sm-6 mb-3 mb-sm-5">
                 <div class="card" style="text-align: center;">
-                    <p class="fs-4"><strong>{{ comment.user.username | upper }}</strong> el {{ comment.created_at }} </p>
+                    <p class="fs-4"><strong>{{ comment.user.username | upper }}</strong> el {{ comment.created_at }}
+                    </p>
                     <p class="fs-4">{{ comment.content }}</p>
                 </div>
             </div>{% endfor %}<br>
