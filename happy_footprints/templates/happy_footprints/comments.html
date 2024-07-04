@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <h2>All Comments</h2>
+    {% for comment in comments %}
+        <div>
+            <p><strong>{{ comment.user.username }}</strong> at {{ comment.created_at }}</p>
+            <p>{{ comment.content }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

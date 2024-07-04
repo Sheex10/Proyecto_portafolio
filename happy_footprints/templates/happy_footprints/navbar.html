@@ -48,6 +48,12 @@
                         <a class="nav-link" href="{% url 'Carrito' %}"><strong>CARRITO</a></strong>
                     </li>
                     {% endif %}
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'comentarios' %}"><strong>Sugerencias</a></strong>
+                    </li>
+                    {% endif %}
                     {% if user.is_staff %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'Gestion' %}"><strong>MODIFICAR PRODUCTOS</a></strong>

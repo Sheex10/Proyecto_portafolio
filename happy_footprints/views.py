@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Categoria, Rol
+
+from .models import Producto, Categoria, Rol, Comment
 from django.contrib.auth.hashers import check_password
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from .forms import CustomUserCreationForm
+from .forms import CommentForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
@@ -299,3 +300,38 @@ def ComederosG(request):
 def CasasG(request):
     return render(request, 'Gatos/CasasG.html')  
 
+#----------------
+@login_required
+def add_comment(request):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.save()
+            return redirect('comments')
+    else:
+        form = CommentForm()
+
+    comments = Comment.objects.all().order_by('-created_at')
+    return render(request, 'comments.html', {'form': form, 'comments': comments})
+
+@login_required
+def comentarios(request):
+    '''if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.save()
+            return redirect('comentarios')  # Cambia 'comments' por 'comentarios' si esa es la URL correcta
+    else:
+        form = CommentForm()'''
+
+    comments = Comment.objects.all()
+    print(comments)
+
+    context = {
+        'comments': comments,
+    }
+    return render(request, 'happy_footprints/comentarios.html', context)

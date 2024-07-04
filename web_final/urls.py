@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from web_final import settings
+
 
 urlpatterns = [
     path('', include('happy_footprints.urls')),
