@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import Producto, Categoria, Rol, Comment, ItemCarrito, Carrito
+from .models import Producto, Categoria, Rol, Comment
 from django.contrib.auth.hashers import check_password
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -337,37 +337,7 @@ def lista_productos(request):
     productos = Producto.objects.all()
     return render(request, 'happy_footprints/Produc.html', {'productos': productos})
 
-def agregar_al_carrito(request, id_producto):
-    producto = get_object_or_404(Producto, id=id_producto)
-    
-    # Ejemplo de cómo agregar el producto al carrito (puedes tener tu propia lógica aquí)
-    if 'carrito' not in request.session:
-        request.session['carrito'] = []
 
-    carrito = request.session['carrito']
-    carrito.append({
-        'id': producto.id_producto,
-        'nombre': producto.nombre,
-        'precio': producto.precio,
-        'cantidad': 1  # Puedes manejar la cantidad como desees
-    })
-
-    request.session['carrito'] = carrito
-
-    return redirect('ver_carrito')
-
-def ver_carrito(request):
-    carrito_id = request.session.get('carrito_id')
-    if carrito_id:
-        carrito = Carrito.objects.get(id=carrito_id)
-    else:
-        carrito = None
-    return render(request, 'happy_footprints/ver_carrito.html', {'carrito': carrito})
-
-def eliminar_del_carrito(request, item_id):
-    item = get_object_or_404(ItemCarrito, id=item_id)
-    item.delete()
-    return redirect('ver_carrito')
 
 def buscar_interno_producto(request, id):
     productos = Producto.objects.get(id_producto=id)
