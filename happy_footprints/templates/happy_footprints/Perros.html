@@ -14,7 +14,7 @@
 <br><br>
 <div class="container">
     <div class="row" style="text-align: center;">
-        {% for p in nomProd %}
+        {% for p in productos %}
         <div class="col-md-4 col-sm-12">
             <a href="{% url 'buscar_interno_producto' p.id_producto %}" target="_self"><br><br><br>
                 <img class="fotoproductos" src="{{ p.foto.url }}" alt="No disponible" /> </a>

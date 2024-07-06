@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import Producto, Categoria, Rol, Comment
+from .models import Producto, Categoria, Rol, Comment, ItemCarrito, Carrito
 from django.contrib.auth.hashers import check_password
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -18,7 +18,7 @@ def home(request):
 def Perros(request):
     listaProductos = Producto.objects.filter(categoria=4)
     contexto = {
-        "nomProd" : listaProductos
+        "productos" : listaProductos
 
     }
     return render(request, 'happy_footprints/Perros.html', contexto)
@@ -27,17 +27,12 @@ def Perros(request):
 def Gatos(request):
     listaProductos = Producto.objects.filter(categoria=3)
     contexto = {
-        "nomProd" : listaProductos
+        "productos" : listaProductos
 
     }
     return render(request, 'happy_footprints/Gatos.html', contexto)
 
-def buscar_interno_producto(request, id):
-    prod = Producto.objects.get(id_producto=id)
-    contexto = {
-        "nombree": prod
-    }
-    return render(request, 'happy_footprints/CamaPerro.html', contexto)
+
 
 def Razas(request):
     return render(request, 'happy_footprints/Razas.html')
@@ -120,14 +115,14 @@ def eliminarProducto(request, id_producto):
 
 #-------------------------------------------------------------------
 
-@login_required
+'''@login_required
 def EditProducto(request):
     listaProductos = Producto.objects.all()
     contexto = {
         "nomProd": listaProductos
 
     }
-    return render(request, 'happy_footprints/EditProducto.html', contexto)
+    return render(request, 'happy_footprints/EditProducto.html', contexto)'''
 
 
 def CamaPerro(request):
@@ -138,7 +133,7 @@ def CamaPerro(request):
 
 def Produc(request):
 
-    return render(request, 'happy_footprints/Producto.html')
+    return render(request, 'happy_footprints/Produc.html')
 
 
 @login_required
@@ -336,3 +331,47 @@ def comentarios(request):
         'form' : form
     }
     return render(request, 'happy_footprints/comentarios.html', context)
+
+#----------
+def lista_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'happy_footprints/Produc.html', {'productos': productos})
+
+def agregar_al_carrito(request, id_producto):
+    producto = get_object_or_404(Producto, id=id_producto)
+    
+    # Ejemplo de cómo agregar el producto al carrito (puedes tener tu propia lógica aquí)
+    if 'carrito' not in request.session:
+        request.session['carrito'] = []
+
+    carrito = request.session['carrito']
+    carrito.append({
+        'id': producto.id_producto,
+        'nombre': producto.nombre,
+        'precio': producto.precio,
+        'cantidad': 1  # Puedes manejar la cantidad como desees
+    })
+
+    request.session['carrito'] = carrito
+
+    return redirect('ver_carrito')
+
+def ver_carrito(request):
+    carrito_id = request.session.get('carrito_id')
+    if carrito_id:
+        carrito = Carrito.objects.get(id=carrito_id)
+    else:
+        carrito = None
+    return render(request, 'happy_footprints/ver_carrito.html', {'carrito': carrito})
+
+def eliminar_del_carrito(request, item_id):
+    item = get_object_or_404(ItemCarrito, id=item_id)
+    item.delete()
+    return redirect('ver_carrito')
+
+def buscar_interno_producto(request, id):
+    productos = Producto.objects.get(id_producto=id)
+    contexto = {
+        "producto": productos
+    }
+    return render(request, 'happy_footprints/CamaPerro.html', contexto)

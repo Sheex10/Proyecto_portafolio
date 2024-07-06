@@ -1,0 +1,31 @@
+{% extends 'happy_footprints/navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito de Compras</title>
+</head>
+{% block cuerpo %}
+<body>
+    <h1>Carrito de Compras</h1>
+    {% if carrito and carrito.items.exists %}
+        <ul>
+        {% for item in carrito.items.all %}
+            <li>
+                {{ item.cantidad }} x {{ item.producto.nombre }} - ${{ item.producto.precio }}
+                <a href="{% url 'eliminar_del_carrito' item.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+        </ul>
+        <p>Total: ${{ carrito.total }}</p>
+    {% else %}
+        <p>El carrito está vacío.</p>
+    {% endif %}
+    <a href="{% url 'home' %}">Continuar comprando</a>
+</body><br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock cuerpo %}
+</html>

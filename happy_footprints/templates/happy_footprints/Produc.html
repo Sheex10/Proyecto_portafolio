@@ -6,7 +6,7 @@
 {% endblock titulo %}
 
 {% block cuerpo_producto %}
-<div class="container">
+<!---<div class="container">
     <div class="row" style="text-align: center;">
         <div class="col-md-6 col-sm-12">
             <a href="#" target="_self"><br><br><img
@@ -26,5 +26,32 @@
             <h5>{{ nombree.descripcion }}</h5>
         </div>
     </div>
-</div> 
+</div> -->
+
+    {% for producto in productos %}
+
+    <div class="container">
+        <div class="row" style="text-align: center;">
+            <div class="col-md-6 col-sm-12">
+                <a href="#" target="_self"><br><br><img
+                    src="{{ producto.foto.url }}" alt="No disponible"> </a>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <br><h2 >{{ producto.nombre }}</h2>
+                <h4>${{ producto.precio }}</h4> 
+                <br><br><br><h4>Cantidad:</h4><input class="cant" type="number" min="1" max="200" placeholder="1">
+                <button href="{% url 'agregar_al_carrito' producto.id_producto %}" class="button">Añadir al carrito</button>
+            </div>
+        </div> 
+        <div class="row" style="text-align: center;">
+            <div class="col-md-12 col-sm-12">
+                <hr class="solid">
+                <h2>Descripción</h2>
+                <h5>{{ producto.descripcion }}</h5>
+            </div>
+        </div>
+    </div>
+        {% endfor %}
+
+<a href="{% url 'ver_carrito' %}">Ver Carrito</a>
 {% endblock cuerpo_producto %}
