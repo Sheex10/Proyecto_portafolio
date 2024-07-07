@@ -183,16 +183,45 @@
     <div class="container">
         <div class="row">
             <!-- Elementos generados a partir del JSON -->
-            <main id="items" class="col-md-8 col-sm-12 row"></main>
+            <main  class="col-md-8 col-sm-12 row">
+                <div class="row">
+                    {% for x in productos%}
+                    <div class="col-4">
+                        <div style="background-color: white;border-radius: 5px"> 
+                            <img src="{{x.foto.url}}" style="width: 250px;padding: 10px;">
+                            <div style="padding-left: 20px;">
+                               {{x.nombre}}<br>${{x.precio}}
+                            </div>
+                             
+                        </div><br>
+                   </div>
+                    
+                   
+                    {% endfor %}
+                   
+                </div>
+               
+               
+            </main>
             <!-- Carrito -->
             <aside class="col-md-4 col-sm-12">
                 <h2><strong>CARRITO DE COMPRAS</strong></h2>
+                {% for x in productos%}
+                <div style="margin: 10px; background-color: white; position: relative; padding: 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <img src="{{ x.foto.url }}" style="width: 50px;">{{x.id_producto}} {{ x.nombre }} -- {{ x.precio }}
+                        </div>
+                        <a href="{% url 'eliminar_producto_carrito' x.id_producto %}" style="text-decoration: none; color: white;  background-color: #af1414;padding: 10px;border-radius: 5px">X</a>
+                    </div>
+                </div>
+                {% endfor %}
                 <!-- Elementos del carrito -->
                 <ul id="carrito" class="list-group"></ul>
                 <hr>
                 <!-- Precio total -->
-                <p class="text-right"><STRONG>TOTAL: <span id="total"></span> PESOS</STRONG></p>
-                <button id="boton-vaciar" class="btn btn-danger">Vaciar carrito</button>
+                <p class="text-right"><STRONG>TOTAL: ${{suma}}<span id="total"></span> PESOS</STRONG></p>
+                
                 <button class="btn btn-danger" data-style="expand-left">Pagar</button>
             </aside>
         </div>

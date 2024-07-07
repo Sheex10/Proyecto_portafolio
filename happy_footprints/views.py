@@ -38,7 +38,27 @@ def Razas(request):
     return render(request, 'happy_footprints/Razas.html')
 
 def Carrito(request):
-    return render(request, 'happy_footprints/Carrito.html')
+    productos_en_carrito = []
+    if 'carrito_productos' in request.session:
+        lista_productos_id = request.session['carrito_productos']
+        productos_en_carrito = Producto.objects.filter(id_producto__in=lista_productos_id)
+    sumtotal = 0
+    
+    for i in productos_en_carrito:
+        sumtotal += i.precio
+
+    
+    contexto={
+        "productos":productos_en_carrito, 
+        "suma":sumtotal, 
+        
+     
+       
+    }
+    print(lista_productos_id)
+    print(productos_en_carrito)
+    return render(request, 'happy_footprints/Carrito.html',contexto)
+   
 
 def Preguntas(request):
     return render(request, 'happy_footprints/Preguntas.html')
@@ -357,4 +377,49 @@ def agregar_carrito(request, id):
         precio_total=producto.precio
     )
     messages.success(request, "Producto agregado!.")
+    return redirect('Carrito')
+
+def agregar_carrito2(request, id):
+    producto = Producto.objects.get(id_producto=id)
+    usuario = User.objects.get(username=request.user.username)
+    if 'carrito_productos' not in request.session:
+        request.session['carrito_productos'] = []
+
+    request.session['carrito_productos'].append(producto.id_producto)
+    request.session.modified = True
+    
+    
+    producto.stock=producto.stock-1
+    producto.save()
+    print('agregar carrito 2')
+    
+   
+   
+    messages.success(request, "Producto agregado!.")
+    return redirect('buscar_interno_producto',id=id)
+
+def eliminar_producto_carrito(request, id):
+    if 'carrito_productos' in request.session:
+        lista_productos_id = request.session['carrito_productos']
+        
+        # Convertir id a entero si es necesario
+        id = int(id)
+        
+        if id in lista_productos_id:
+            lista_productos_id.remove(id)
+            request.session['carrito_productos'] = lista_productos_id
+            request.session.modified = True
+            
+            # Obtener el producto y ajustar el stock
+            producto = get_object_or_404(Producto, id_producto=id)
+            producto.stock += 1
+            producto.save()
+            
+            # Mensaje de éxito
+            messages.success(request, "Producto eliminado del carrito.")
+        else:
+            print('No se encontró el id en la lista de carrito_productos:', id)
+    else:
+        print('No se encontró la lista de carrito_productos en la sesión.')
+    
     return redirect('Carrito')
