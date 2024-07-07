@@ -34,15 +34,7 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 #---------------------------------------
-class Direccion(models.Model):
-    id_direccion =models.IntegerField(primary_key=True, verbose_name="id de direccion")
-    calle=models.CharField(max_length=100, verbose_name="nombre calle")
-    numero=models.IntegerField(verbose_name="numero casa")
-    descripcion=models.CharField(max_length=600, verbose_name="descripcion direccion")
-    
-    
-    def __str__(self):
-        return self.descripcion
+
 #----------------------------------------------
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -61,7 +53,4 @@ class Carrito(models.Model):
     precio_total = models.IntegerField(verbose_name="total del carrito")
 
     def __str__(self):
-        return self.id_carrito
-
-
-
+        return self.producto_carrito
