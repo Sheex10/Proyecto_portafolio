@@ -17,7 +17,7 @@
             <br><h1 class="fw-bold"><strong>{{ producto.nombre }}</h1></strong>
             <h1 class="fw-bold"><strong>${{ producto.precio }}</h1> </strong>
             <br><br><br><h1 class="fw-bold"><strong>Cantidad:</h1></strong><input class="cant" type="number" min="1" max="200" placeholder="1">
-            <button  class="button" href="{% url 'Carrito'  %} "id="liveToastBtn"><strong>AÑADIR AL CARRITO</button></strong>
+            <button  class="button" href="{% url 'agregar_carrito' producto.id_producto %} "id="liveToastBtn"><strong>AÑADIR AL CARRITO</button></strong>
         </div>
             <div class="toast-container position-fixed bottom-0 end-0 p-3">
               <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">

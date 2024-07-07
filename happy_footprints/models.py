@@ -52,7 +52,16 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment by {self.user} on {self.created_at}'
 
-#--------------
+#--------------MODELOS PARA EL CARRITO------------
+class Carrito(models.Model):
+    id_carrito = models.AutoField(primary_key=True, verbose_name="id del carrito")
+    producto_carrito = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    user_carrito = models.ForeignKey(User, on_delete=models.CASCADE)
+    cantidad = models.IntegerField(verbose_name="cantidad del producto")
+    precio_total = models.IntegerField(verbose_name="total del carrito")
+
+    def __str__(self):
+        return self.id_carrito
 
 
 

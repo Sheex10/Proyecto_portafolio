@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import Producto, Categoria, Rol, Comment
+from .models import Producto, Categoria, Rol, Comment, User, Carrito
 from django.contrib.auth.hashers import check_password
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -345,3 +345,16 @@ def buscar_interno_producto(request, id):
         "producto": productos
     }
     return render(request, 'happy_footprints/CamaPerro.html', contexto)
+
+def agregar_carrito(request, id):
+    producto = Producto.objects.get(id_producto=id)
+    usuario = User.objects.get(username=request.user.username)
+
+    Carrito.objects.create(
+        producto_carrito=producto,
+        user_carrito=usuario,
+        cantidad=1,
+        precio_total=producto.precio
+    )
+    messages.success(request, "Producto agregado!.")
+    return redirect('Carrito')
