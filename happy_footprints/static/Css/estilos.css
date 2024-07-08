@@ -161,6 +161,13 @@
     background-color: rgba(84, 12, 199, 0.555);
   }
 
-  
+  .fotoproductos1{
+    max-width: 20%;
+    height: auto;
+    margin: 20px;
+    padding: 5px;
+    display: inline-block;
+    margin: auto;
+ }
   
  

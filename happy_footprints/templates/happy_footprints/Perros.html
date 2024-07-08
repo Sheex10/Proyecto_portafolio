@@ -17,7 +17,7 @@
         {% for p in productos %}
         <div class="col-md-4 col-sm-12">
             <a href="{% url 'buscar_interno_producto' p.id_producto %}" target="_self"><br><br><br>
-                <img class="fotoproductos" src="{{ p.foto.url }}" alt="No disponible" /> </a>
+                <img class="fotoproductos1" src="{{ p.foto.url }}" alt="No disponible" /> </a>
             <h2 class="fw-bold" class="desc2"><strong>{{ p.nombre | upper }}</h2></strong>
             <h2 class="fw-bold" class="desc2"><strong>${{ p.precio }}</h2></strong>
         </div>
